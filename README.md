@@ -1,50 +1,66 @@
-# React + TypeScript + Vite
+# KLIMATE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+KLIMATE is a sleek and user-friendly weather application that provides real-time weather updates and forecasts for cities worldwide. Built with modern web technologies, it offers a seamless and responsive user experience.
 
-Currently, two official plugins are available:
+### Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Real-Time Weather Updates: Access current weather conditions, including temperature, humidity, wind speed, and more.
+* 5-Day Forecast: Plan ahead with detailed weather forecasts for the upcoming five days.
+* Search Functionality: Easily search for weather information in any city worldwide.
+* Favorites: Save your preferred cities for quick access to their weather data.
+* Light/Dark Mode: Toggle between light and dark themes for a comfortable viewing experience.
+* Responsive Design: Enjoy a consistent and optimized experience across various devices and screen sizes.
 
-## Expanding the ESLint configuration
+### Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+* Frontend: [React.js](https://react.dev/) , [TypeScript](https://www.typescriptlang.org/) , [Tailwind CSS](https://tailwindcss.com/)
+* Data Fetching: [Tanstack Query  ](https://tanstack.com/query/latest)for efficient data management and caching
+* Data Visualization: [Recharts](https://recharts.org/en-US/) for graphical representation of weather data
+* User Interface: [ShadCN ](https://ui.shadcn.com/)UI for a polished and intuitive design
+* Weather Data API: [OpenWeather](https://openweathermap.org/api) API for accurate and up-to-date weather information
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Installation
+
+1. Clone the Repository:
+
+```bash
+  git clone https://github.com/aniiiil/KLIMATE.git
 ```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2. Navigate to the Project Directory:
+```bash
+  cd KLIMATE
 ```
+3. Install Dependencies:
+```bash
+  npm install
+```
+4. Set Up Environment Variables:
+```bash
+  REACT_APP_OPENWEATHER_API_KEY= your_api_key_here
+```
+5. Start the Development Server:
+```bash
+   npm start
+```
+The application will be accessible at http://localhost:3000.
+
+### Usage
+
+* Search for a City: Use the search bar to find weather information for a specific city.
+* View Weather Details: Access current conditions, hourly forecasts, and 5-day outlooks.
+* Add to Favorites: Click the "Add to Favorites" button to save a city for quick access.
+* Toggle Theme: Use the theme switcher to switch between light and dark modes.
+
+
+
+### Contributing
+
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
+
+### License
+This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License.
+
+
+##
+Note: Ensure you have Node.js and npm installed on your machine before starting the installation process.
