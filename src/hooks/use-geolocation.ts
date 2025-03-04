@@ -13,7 +13,7 @@ export function useGeolocation() {
     isLoading: true,
   });
 
-  const getLocation = () => {
+  const getLocation = async () => {
     setLocationData((prev) => ({ ...prev, isLoading: true, error: null }));
 
     if (!navigator.geolocation) {
@@ -24,7 +24,7 @@ export function useGeolocation() {
       });
       return;
     }
-    navigator.geolocation.getCurrentPosition(
+    await navigator.geolocation.getCurrentPosition(
       (position) => {
         setLocationData({
           coordinates: {
@@ -35,12 +35,13 @@ export function useGeolocation() {
           isLoading: false,
         });
       },
-      (error) => {
+      async (error) => {
         let errorMessage: string;
 
         switch (error.code) {
           case error.PERMISSION_DENIED:
-            errorMessage = "Location permission denied. Please enable location access.";
+            errorMessage =
+              "Location permission denied. Please enable location access.";
             break;
           case error.POSITION_UNAVAILABLE:
             errorMessage = "Location information is unavailable.";
@@ -51,7 +52,7 @@ export function useGeolocation() {
           default:
             errorMessage = "An unknown error occurred.";
         }
-        setLocationData({
+        await setLocationData({
           coordinates: null,
           error: errorMessage,
           isLoading: false,
@@ -59,7 +60,7 @@ export function useGeolocation() {
       },
       {
         enableHighAccuracy: true,
-        timeout: 5000,
+        timeout: 10000,
         maximumAge: 0,
       }
     );

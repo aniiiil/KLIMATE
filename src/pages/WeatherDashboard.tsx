@@ -1,8 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { useGeolocation } from "@/hooks/use-geolocation";
-import { AlertTriangle, MapPin, RefreshCw } from "lucide-react";
-import WeatherSkeleton from "../components/loading-skeleton";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import {
   useForecastQuery,
   useReverseGeocodeQuery,
@@ -13,6 +8,11 @@ import HourlyTemperature from "@/components/hourly-temperature";
 import WeatherDetails from "@/components/weather-details";
 import WeatherForecast from "@/components/weather-forecast";
 import FavoriteCities from "@/components/favorite-cities";
+import { useGeolocation } from "@/hooks/use-geolocation";
+import { Button } from "@/components/ui/button";
+import { AlertTriangle, MapPin, RefreshCw } from "lucide-react";
+import WeatherSkeleton from "../components/loading-skeleton";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 const WeatherDashboard = () => {
   const {
@@ -39,9 +39,6 @@ const WeatherDashboard = () => {
   // showing skeleton  when component loading
 
   if (locationLoading) {
-    return <WeatherSkeleton />;
-  }
-  if (!weatherQuery.data || !forecastQuery.data) {
     return <WeatherSkeleton />;
   }
 
@@ -90,6 +87,10 @@ const WeatherDashboard = () => {
         </AlertDescription>
       </Alert>
     );
+  }
+
+  if (!weatherQuery.data || !forecastQuery.data) {
+    return <WeatherSkeleton />;
   }
 
   return (
