@@ -20,12 +20,12 @@ const HourlyTemperature = ({ data }: HourlyTemperatureProps) => {
     feels_like: Math.round(item.main.feels_like),
   }));
   return (
-    <Card className="flex-1">
+    <Card className="flex-1 ">
       <CardHeader>
         <CardTitle>Today's Temperature</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="h-[200px] w-full">
+      <CardContent className="p-2 md:p-6">
+        <div className="h-[200px] w-full ">
           <ResponsiveContainer width={"100%"} height={"100%"}>
             <LineChart data={chartData}>
               <XAxis

@@ -59,11 +59,11 @@ const WeatherDetails = ({ data }: WeatherDetailsProps) => {
             return (
               <div
                 key={detail.title}
-                className="flex items-center gap-3 rounded-lg border p-4 "
+                className="flex items-center gap-8 md:gap-3 rounded-lg border p-4 "
               >
                 <detail.icon className={`h-5 w-5 ${detail.color}`} />
                 <div>
-                  <p className="text-base   font-medium leading-none">
+                  <p className="text-base pb-1 md:pb-0 font-medium leading-none">
                     {detail.title}
                   </p>
                   <p className="text-xs font-medium text-muted-foreground ">

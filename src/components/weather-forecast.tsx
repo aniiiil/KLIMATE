@@ -53,17 +53,17 @@ const WeatherForecast = ({ data }: WeatherForecastProps) => {
             return (
               <div
                 key={day.date}
-                className="grid md:grid-cols-3 items-center justify-center gap-4 rounded-lg border p-4"
+                className="grid md:grid-cols-3 items-center justify-center gap-1 md:gap-4 rounded-lg border p-4"
               >
-                <div>
-                  <p className="font-medium text-center md:text-left ">
-                    {format(new Date(day.date * 1000), "EEE, MMM d")}
+                <div className="pb-3 md:pb-0">
+                  <p className="font-medium text-lg  md:text-base text-center md:text-left ">
+                    {format(new Date(day.date * 1000), "EEE , MMM d")}
                   </p>
-                  <p className="text-sm text-muted-foreground capitalize">
+                  <p className="text-sm text-center md:text-left  text-muted-foreground capitalize">
                     {day.weather.description}
                   </p>
                 </div>
-                <div className="flex justify-center gap-4">
+                <div className="flex justify-center text-sm md:text-base gap-4">
                   <span className="flex items-center text-blue-500">
                     <ArrowDown className="mr-1 h-4 w-4" />
                     {formatTemp(day.temp_min)}
@@ -73,7 +73,7 @@ const WeatherForecast = ({ data }: WeatherForecastProps) => {
                     {formatTemp(day.temp_max)}
                   </span>
                 </div>
-                <div className="flex justify-end gap-4">
+                <div className="flex text-xs md:text-base justify-end gap-4">
                   <span className="flex items-center gap-1">
                     <Droplets className="h-4 w-4  text-blue-500" />
                     <span className="text-sm">{day.humidity}%</span>

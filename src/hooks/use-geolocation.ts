@@ -13,7 +13,7 @@ export function useGeolocation() {
     isLoading: true,
   });
 
-  const getLocation = async () => {
+  const getLocation = () => {
     setLocationData((prev) => ({ ...prev, isLoading: true, error: null }));
 
     if (!navigator.geolocation) {
@@ -22,9 +22,11 @@ export function useGeolocation() {
         isLoading: false,
         error: "Geolocation is not supported by this browser",
       });
+
       return;
     }
-    await navigator.geolocation.getCurrentPosition(
+
+    navigator.geolocation.getCurrentPosition(
       (position) => {
         setLocationData({
           coordinates: {
@@ -35,7 +37,7 @@ export function useGeolocation() {
           isLoading: false,
         });
       },
-      async (error) => {
+      (error) => {
         let errorMessage: string;
 
         switch (error.code) {
@@ -52,7 +54,7 @@ export function useGeolocation() {
           default:
             errorMessage = "An unknown error occurred.";
         }
-        await setLocationData({
+        setLocationData({
           coordinates: null,
           error: errorMessage,
           isLoading: false,
@@ -60,7 +62,7 @@ export function useGeolocation() {
       },
       {
         enableHighAccuracy: true,
-        timeout: 10000,
+        timeout: 5000,
         maximumAge: 0,
       }
     );

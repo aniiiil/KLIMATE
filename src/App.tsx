@@ -6,7 +6,6 @@ import CityPage from "./pages/CityPage";
 import Layout from "./components/layout";
 import { Toaster } from "sonner";
 function App() {
-
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -32,7 +31,7 @@ function App() {
             <Toaster richColors />
           </ThemeProvider>
         </BrowserRouter>
-           </QueryClientProvider>
+      </QueryClientProvider>
     </>
   );
 }
